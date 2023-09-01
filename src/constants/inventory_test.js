@@ -5,7 +5,7 @@ export const bestSellingTv = {
     brand: 'Samsung',
     price: 549,
     availableSizes: [43, 50, 55, 65],
-    refreshRateg: 50,
+    refreshRate: 50,
     screenType: 'LED-LCD',
     screenQuality: 'Ultra HD/4K',
     smartTv: true,
@@ -328,4 +328,16 @@ export let tvInventory = [
     },
 ];
 
+
+
+
+// Opdracht 1a: Gebruik een array-methode om een array te maken met daarin alle tv-type namen. Log de uitkomst in de console.
+
+// Extract TV type names
+const tvTypeNames = tvInventory.map((tv) => tv.name);
+
+// Log the result
+console.log(tvTypeNames);
+
+// Opdracht 1b: Gebruik een array-methode om alle informatie te verzamelen van de tv's die volledig uitverkocht zijn. Log de uitkomst in de console.
 

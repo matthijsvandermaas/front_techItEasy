@@ -1,0 +1,221 @@
+/*react les 1*/
+/*///
+Table of Contents:
+    1. link to the repository
+    //
+    2. Global Styles
+        1.1 variable styles
+    3. Typografie*/
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Poppins:wght@100&display=swap');
+/*  4. roots styles*/
+/*-colors-*/
+:root {
+    --informationsold: rgb(76, 204, 0);
+    --informationbought: rgb(92, 142, 162);
+    --informationstockleft: rgb(228, 69, 69);
+    --informationsoldbackground: linear-gradient(to right, rgba(76, 204, 0, 0.3), rgba(0, 204, 76, 0.3));
+    --informationboughtbackground: linear-gradient(to right, rgba(92, 142, 162, 0.3), rgba(162, 142, 91, 0.3));
+    --informationstockleftbackground: linear-gradient(to right, rgba(228, 69, 69, 0.3), rgba(69, 69, 228, 0.3));
+    --Zwart: #0C0C0C; /*(voor standaard tekst);*/
+    --Lichtpaars: #F2F0FF; /*(voor de grote zwevende woorden, zoals "hello" en "services") Uitzonderingen*/
+    --Lichtgrijs: #F3F6F9; /*(voor de achtergrond van de projecten)*/
+}
+/*-font-size-*/
+:root {
+    --font-pc__p: 12px;
+    --font-phone__p: 10px;
+    --font-pc__h2--h3: 20px bold;
+    --font-phone__h2--h3: 16px bold;
+}
+/*-font-weight-*/
+
+/*-borders-*/
+:root border {
+    --font-pc-__border: black solide 2px;
+    --font-phone__p: black solide 1px;
+    --font-pc__h2--h3: black solide 5px;
+    --font-phone__h2--h3: black solide 2, 5px;
+    --generalborder: 10px;
+    --borderradiusfactor: 2;
+}
+:root size {
+    --standaard: 100px;
+}
+
+/*
+    5. utility/reusible
+    6. Areas
+        6.1 information
+        5.2 area 2
+        6.3 Support
+        6.4 Faq
+
+ */
+
+
+/*--2. Global Styles--*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*--5. utility/reusible--*/
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh; /* Volledige viewporthoogte voor de container */
+    transition: box-shadow 0.3s ease; /* Voeg een overgang toe voor het box-shadow-effect */
+
+}
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin-top: 15px; /* Iconen centreren horizontaal */
+}
+.generalContainer{
+    max-height: 800px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: black solid 3px;
+    border-radius: 10px;
+    margin: 15px 10px;
+
+}
+
+.outerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.bestsellingContainer{
+    flex-direction: row;
+    justify-content: center; /* Horizontaal uitlijnen in het midden */
+    align-items: center; /* Verticaal uitlijnen in het midden */
+
+
+}
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 1.3s ease;
+    overflow: hidden; /* Hierdoor blijft de afbeelding binnen de grenzen van de container */
+    z-index:1;
+}
+.fotoContainer img:hover {
+    transform: scale(1.5); /* Hierdoor wordt de afbeelding 10% groter bij hover */
+    transform-origin: center left; /* Hierdoor wordt de afbeelding getransformeerd rond het midden ervan */
+    box-shadow:  inset rgba(0, 0, 0, 0.03) 2px 2px 2px 2px, rgba(0, 0, 0, 0.03) 2px 2px 2px 2px;
+}
+
+.resultContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+.head{
+    align-self: center;
+}
+
+.SoldTvContainer,
+.boughtTvContainer,
+.TvsleftContainer {
+    /* Voeg stijlen toe aan de containers */
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+    margin: 10px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    border-radius: 20px 20px;
+}
+
+svg.icon{
+    height: 30px;
+    width: 30px;
+    fill: darkblue;
+    border-radius: 70% 70%;
+    font-weight: lighter;
+    margin: 5px;
+
+    transition: all 1.5s ease;
+}
+.icon:hover {
+    height: calc(30px * 1.1);
+    width: calc(30px * 1.1);
+    fill: blue;
+    /*stroke="red" d="M5 20 l215 0";*/
+    box-shadow: inset 1px 1px 1px rgba(88, 0, 0, 0.25), 1px 1px 1px rgba(21, 88, 0, 0.25);
+    /*box-shadow: inset rgba(0, 0, 255, 0.2) 3px 3px, rgba(0, 0, 255, 0.20) 3px 3px;*/
+    /*border-radius: 25% 25%;*/
+}
+
+/*--6. Areas--*/
+/*- 6.1 information-*/
+
+.SoldTvContainer{
+    color: var(--informationsold);
+    border: 2px solid var(--informationsold);
+    background: var(--informationsoldbackground); /* Gebruik 'background' in plaats van 'background-image' */
+    border-radius: calc(var(--generalborder) * 2) calc(var(--generalborder) * 2); /* Opgelet, hier zit een fout in je code */
+}
+
+.boughtTvContainer {
+    color: var(--informationbought);
+    border: 2px solid var(--informationbought);
+    background: var(--informationboughtbackground); /* Gebruik 'background' in plaats van 'background-image' */
+    border-radius: calc(var(--generalborder) * 2) calc(var(--generalborder) * 2); /* Opgelet, hier zit een fout in je code */
+}
+
+.TvsleftContainer {
+    color: var(--informationstockleft);
+    border: 2px solid var(--informationstockleft);
+    background: var(--informationstockleftbackground); /* Gebruik 'background' in plaats van 'background-image' */
+    border-radius: calc(var(--generalborder) * var(--borderradiusfactor)), calc(var(--generalborder) * var(--borderradiusfactor));
+}
+.fotoContainer {
+    width: 50%;
+    height: auto;
+    margin: 0.1rem 0.1rem 0.1rem 0.1rem;
+    transition: all 1.5s ease;
+    z-index: 2;
+
+}
+
+.fotoContainer img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+    padding: 0px;
+    object-fit: contain;
+    transition: transform 1.3s ease;
+    transform-origin: center left; /* Hierdoor wordt de afbeelding getransformeerd rond het midden ervan */
+    top: 0; /* Plaats de afbeelding bovenaan */
+    left: 0; /* Plaats de afbeelding helemaal links */
+    border-radius: 1% 1%;
+    border: 10px white solid;
+    filter: fade(5px);}
