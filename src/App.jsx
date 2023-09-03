@@ -8,7 +8,7 @@ import {
     formatPrice,
     generateScreenSizes,
     notSoldTVs,
-    findNh3216SmartTV
+    findNh3216SmartTV, sportTvs, tvBrands
 } from "./helper/Helper.js";
 import { bestSellingTv } from "./constants/inventory.js";
 import { ReactComponent as CheckIcon } from './assets/icons8-check.svg';
@@ -21,6 +21,7 @@ const handleSortClick = (sortType) => {
 function App() {
     console.log(notSoldTVs());
     console.log(findNh3216SmartTV());
+    console.log(sportTvs());
     return (
         <>
             <div className="outerContainer">
@@ -77,6 +78,8 @@ function App() {
                 </div>
                 <p>{notSoldTVs()}</p>
                 <p>{findNh3216SmartTV()}</p>
+                <p>{sportTvs()}</p>
+                <p>{tvBrands()}</p>
             </div>
         </>
     );

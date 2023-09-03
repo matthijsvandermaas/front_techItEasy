@@ -1,4 +1,4 @@
-import { tvInventory } from "../constants/inventory.js";
+import {bestSellingTv, tvInventory} from "../constants/inventory.js";
 
 export function calculateTotalSoldTVs() {
     let totalSoldTVs = 0;
@@ -71,15 +71,58 @@ export function notSoldTVs() {
 export function findNh3216SmartTV() {
     const nh3216SmartTV = tvInventory.find((tv) => tv.type === 'NH3216SMART');
     if (nh3216SmartTV) {
-        console.log(nh3216SmartTV);
+        console.log(`tv gevonden ${nh3216SmartTV}`);
         return `TV gevonden: ${nh3216SmartTV.name}| ${nh3216SmartTV.type}| ${nh3216SmartTV.brand}| ${nh3216SmartTV.price},-| ${nh3216SmartTV.smartTv} `;
     } else {
         return 'TV NH3216SMART niet gevonden in de inventaris';
     }
 }
-/* Opdracht 1d: Gebruik een array-methode om een lijst te maken van de merk- en tv-namen waarbij aangegeven
-wordt of deze geschikt zijn voor sport-kijkers (een verversingssnelheid van 100Hz of hoger).
- Doe dit in het format { name: 'Toshiba HD TV', suitable: false }. Log de uitkomst in de console.*/
+export function sportTvs() {
+
+    const filteredTvs = tvInventory.map((tv) => {
+        if (tv.refreshRate > 99) {
+            const result = ` ${tv.name} ${tv.type} ${tv.brand} ${tv.price},- |`;
+            const resultTitle = "Tvs voor sport: "
+            return `${resultTitle} ${result}`;
+        }
+        return null; // Als de tv niet voldoet aan de voorwaarde, retourneer null
+    }); // Filter alle null-waarden uit
+
+    console.log(filteredTvs);
+
+    return filteredTvs;
+}
+
+// Opdracht 2a: Gebruik een array-methode om alle tv merken (zoals Philips, NIKKEI, etc.) in een lijst op de pagina weer te geven.
+//     Dit geeft het personeel een duidelijk overzicht van wat zij verkopen.
+//     Dat er dubbele merknamen in komen, is niet erg.
+
+export function tvBrands()  {
+    const uniqueBrands = [...new Set(tvInventory.map((tv) => tv.brand))];
+   let brandNames = uniqueBrands;
+   let brandTitle = `brands:  ${brandNames} `;
+   return brandTitle;
+}
+
+// Opdracht 2b: Gebruik een array-methode om alle tv's van Tech It Easy weer te geven in hetzelfde format als de best verkochte tv.
+// Gebruik hiervoor ook de helperfuncties die je hebt gemaakt tijdens deel 1, maar sla de opties (zoals bluetooth, wifi, etc.) nog even over.
+
+export function findMatchingTvs() {
+    const screenSizeBestSold = bestSellingTv.availableSizes;
+    const matchingTvs = tvInventory.filter((tv) => screenSizeBestSold.includes(tv.availableSizes[0]));
+
+    const tvDetails = matchingTvs.map((tv) => ({
+        name: tv.name,
+        type: tv.type,
+        brand: tv.brand,
+    }));
+
+    return tvDetails;
+}
+
+const matchingTvInfo = findMatchingTvs();
+console.log('Tv\'s in de inventaris met overeenkomende maten:', matchingTvInfo);
+
 
 
 

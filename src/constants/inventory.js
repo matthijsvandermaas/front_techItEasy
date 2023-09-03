@@ -5,7 +5,7 @@ export const bestSellingTv = {
     brand: 'Samsung',
     price: 549,
     availableSizes: [43, 50, 55, 65],
-    refreshRateg: 50,
+    refreshRate: 50,
     screenType: 'LED-LCD',
     screenQuality: 'Ultra HD/4K',
     smartTv: true,
